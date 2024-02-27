@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/styles.css" />
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <script src="./javascript/usedCars.js"></script>
+    <script src="./javascript/index.js"></script>
+    <title>Humbledorf's Cars</title>
+  </head>
+  <body>
+    <header>
+      <h1>Humbledorf's Cars</h1>
+      <div class="search-box">
+        <form id="search-form">
+          <input
+            type="text"
+            id="search-input"
+            placeholder="Search in-stock vehicles"
+          />
+          <button type="submit"><i class="bx bx-search"></i></button>
+        </form>
+      </div>
+    </header>
+    <section class="filters">
+      <div class="filter-container">
+        <button class="filter-btn">Apply Filters</button>
+      </div>
+      <div class="filter-container">
+        <label for="year">Year</label>
+        <select name="year" id="year">
+          <option value="2015">2015</option>
+          <option value="2016">2016</option>
+          <option value="2017">2017</option>
+          <option value="2018">2018</option>
+          <option value="2019">2019</option>
+          <option value="2020">2020</option>
+        </select>
+      </div>
+      <div class="filter-container"></div>
+      <div class="filter-container"></div>
+      <div class="filter-container"></div>
+      <div class="filter-container"></div>
+    </section>
+  </body>
+</html>

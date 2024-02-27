@@ -1,0 +1,54 @@
+@import url("https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap");
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: "Jost", Arial, Helvetica, sans-serif;
+  /*color palette retrieved from: https://coolors.co/343434-2f3061-0e34a0-5f5980-dfdfdf*/
+  --bg-primary: #343434;
+  --bg-secondary: #2f3061;
+  --bg-tertiary: #5f5980;
+  --font-color-primary: #dfdfdf;
+  --backup-color: #0e34a0;
+}
+
+body {
+  background-color: var(--bg-primary);
+}
+
+header {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  background-color: var(--bg-secondary);
+  height: 25vh;
+}
+
+header h1 {
+  color: var(--font-color-primary);
+  font-size: 4rem;
+  text-align: center;
+}
+
+header .search-box input {
+  position: relative;
+  background: var(--bg-tertiary);
+  color: var(--font-color-primary);
+  font-size: 24px;
+  padding-left: 10px;
+  border: none;
+  border-radius: 5px;
+  width: 40rem;
+  height: 50px;
+}
+
+header .search-box button {
+  position: absolute;
+  border-style: none;
+  background: none;
+  font-size: 28px;
+  z-index: 1;
+  color: var(--font-color-primary);
+}
