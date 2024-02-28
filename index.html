@@ -26,25 +26,74 @@
         </form>
       </div>
     </header>
-    <section class="filters">
-      <div class="filter-container">
-        <button class="filter-btn">Apply Filters</button>
+    <main>
+      <div class="container">
+        <div class="left">
+          <button class="filter-btn">Apply Filters</button>
+          <section class="filters">
+            <div class="filter">
+              <div class="filter-header" onclick="showFilterContent()">
+                <span>Year</span>
+                <i class="bx bx-chevron-down" id="year-chev"></i>
+              </div>
+              <div class="filter-content" id="year">
+                <input type="number" id="min-year" placeholder="min" />
+                <input type="number" id="max-year" place-holder="max" />
+              </div>
+            </div>
+            <div class="filter">
+              <div class="filter-header" onclick="showFilterContent()">
+                <span>Make</span>
+                <i class="bx bx-chevron-down"></i>
+                <div class="filter-content make">
+                  <!--Dynamic content goes here-->
+                </div>
+              </div>
+            </div>
+            <div class="filter">
+              <div class="filter-header" onclick="showFilterContent()">
+                <span>Mileage</span>
+                <i class="bx bx-chevron-down"></i>
+              </div>
+              <div class="filter-content mileage"></div>
+            </div>
+            <div class="filter">
+              <div class="filter-header" onclick="showFilterContent()">
+                <span>Price</span>
+                <i class="bx bx-chevron-down"></i>
+              </div>
+              <div class="filter-content price"></div>
+            </div>
+            <div class="filter">
+              <div class="filter-header" onclick="showFilterContent()">
+                <span>Color</span>
+                <i class="bx bx-chevron-down"></i>
+              </div>
+              <div class="filter-content color">
+                <!--Dynamic content goes here-->
+              </div>
+            </div>
+          </section>
+        </div>
+        <div class="right">
+          <!--Dynamic content goes here-->
+        </div>
       </div>
-      <div class="filter-container">
-        <label for="year">Year</label>
-        <select name="year" id="year">
-          <option value="2015">2015</option>
-          <option value="2016">2016</option>
-          <option value="2017">2017</option>
-          <option value="2018">2018</option>
-          <option value="2019">2019</option>
-          <option value="2020">2020</option>
-        </select>
-      </div>
-      <div class="filter-container"></div>
-      <div class="filter-container"></div>
-      <div class="filter-container"></div>
-      <div class="filter-container"></div>
-    </section>
+    </main>
+    <footer>
+      <ul>
+        <li>Created by Michael Vitale</li>
+        <li>mvitale2@oakland.edu</li>
+        <li>
+          <a
+            href="https://github.com/mvitale2/michaelvitale_hw4TH_csi3150_w2024"
+            target="__blank"
+            rel="noopener noreferrer"
+          >
+            <i class="bx bxl-github"></i>
+          </a>
+        </li>
+      </ul>
+    </footer>
   </body>
 </html>
