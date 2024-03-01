@@ -145,8 +145,22 @@ main .container .left .filters .filter .filter-content {
   display: none;
 }
 
+main .container .left .filters .filter .filter-content .num-input {
+  background: var(--bg-tertiary);
+  border: none;
+  border-radius: 5px;
+  width: 100px;
+  height: 40px;
+  color: var(--font-color-primary);
+  padding: 5px;
+  margin: 5px 0;
+}
+
 .show {
-  display: block !important;
+  display: flex !important;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
 }
 
 .chevron-rotate {

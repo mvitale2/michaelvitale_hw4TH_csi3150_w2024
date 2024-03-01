@@ -20,7 +20,7 @@
           <input
             type="text"
             id="search-input"
-            placeholder="Search in-stock vehicles"
+            placeholder="Search used vehicles"
           />
           <button type="submit"><i class="bx bx-search"></i></button>
         </form>
@@ -32,46 +32,64 @@
           <button class="filter-btn">Apply Filters</button>
           <section class="filters">
             <div class="filter">
-              <div class="filter-header" onclick="showFilterContent()">
+              <div class="filter-header" onclick="showFilterContent('year')">
                 <span>Year</span>
                 <i class="bx bx-chevron-down" id="year-chev"></i>
               </div>
               <div class="filter-content" id="year">
-                <input type="number" id="min-year" placeholder="min" />
-                <input type="number" id="max-year" place-holder="max" />
+                <input class="num-input" type="number" id="min-year" placeholder="min year" />
+                <input class="num-input" type="number" id="max-year" placeholder="max year" />
               </div>
             </div>
             <div class="filter">
-              <div class="filter-header" onclick="showFilterContent()">
+              <div class="filter-header" onclick="showFilterContent('make')">
                 <span>Make</span>
-                <i class="bx bx-chevron-down"></i>
-                <div class="filter-content make">
-                  <!--Dynamic content goes here-->
+                <i class="bx bx-chevron-down" id="make-chev"></i>
+                <div class="filter-content" id="make">
+                  <!--Dynamic content here-->
                 </div>
               </div>
             </div>
             <div class="filter">
-              <div class="filter-header" onclick="showFilterContent()">
+              <div class="filter-header" onclick="showFilterContent('mileage')">
                 <span>Mileage</span>
-                <i class="bx bx-chevron-down"></i>
+                <i class="bx bx-chevron-down" id="mileage-chev"></i>
               </div>
-              <div class="filter-content mileage"></div>
+              <div class="filter-content" id="mileage">
+                <div>
+                  <input type="checkbox" name="15" id="15" />
+                  <label for="15">&gt;15000</label>
+                </div>
+                <div>
+                  <input type="checkbox" name="30" id="30" />
+                  <label for="30">&gt;30000</label>
+                </div>
+                <div>
+                  <input type="checkbox" name="45" id="45" />
+                  <label for="45">&gt;45000</label>
+                </div>
+                <div>
+                  <input type="checkbox" name="60" id="60" />
+                  <label for="60">&gt;60000</label>
+                </div>
+              </div>
             </div>
             <div class="filter">
-              <div class="filter-header" onclick="showFilterContent()">
+              <div class="filter-header" onclick="showFilterContent('price')">
                 <span>Price</span>
-                <i class="bx bx-chevron-down"></i>
+                <i class="bx bx-chevron-down" id="price-chev"></i>
               </div>
-              <div class="filter-content price"></div>
+              <div class="filter-content" id="price">
+                <input class="num-input" type="number" id="min-price" placeholder="min price" />
+                <input class="num-input" type="number" id="max-price" placeholder="max price" />
+              </div>
             </div>
             <div class="filter">
-              <div class="filter-header" onclick="showFilterContent()">
+              <div class="filter-header" onclick="showFilterContent('color')">
                 <span>Color</span>
-                <i class="bx bx-chevron-down"></i>
+                <i class="bx bx-chevron-down" id="color-chev"></i>
               </div>
-              <div class="filter-content color">
-                <!--Dynamic content goes here-->
-              </div>
+              <div class="filter-content" id="color"></div>
             </div>
           </section>
         </div>
