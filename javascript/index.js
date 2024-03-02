@@ -1,7 +1,33 @@
-function showFilterContent(id) {
-  document.getElementById(id).classList.toggle('show');
-  document.getElementById(`${id}-chev`).classList.toggle("chevron-rotate");
+import usedCars from "./usedCars.js";
+
+const form = document.getElementById("search-form");
+const user_query = document.getElementById("search-input");
+const container = document.getElementById("content-container");
+const color = document.getElementById("color");
+const make = document.getElementById("make");
+const year = document.getElementById("year");
+const price = document.getElementById("price");
+const mileage = document.getElementById("mileage");
+const filters = [color, make, year, price, mileage];
+
+function createCarCard(car) {
+  return `
+  <div class="car-card">
+    <h2>${car.make} ${car.model}</h2>
+    <p>${car.year}</p>
+    <p>$${car.price}</p>
+    <p>Mileage: ${car.mileage}</p>
+    <p>Gas Mileage: ${car.gasMileage}</p>
+    <p>Color: ${car.color}</p>
+  </div>
+  `;
 }
+
+function generateCarCards(cars) {
+  return cars.map((car) => createCarCard(car)).join("");
+}
+
+container.innerHTML = generateCarCards(usedCars);
 
 /* attempts to be smart and apply clickiness to all filters without having to do anything manually
 //retrieved from https://www.w3schools.com/howto/howto_js_dropdown.asp
@@ -39,12 +65,3 @@ window.onclick = function (event) {
   }
 };
 */
-
-//control variables
-let isSearching = false;
-let page = 1;
-
-function createCarCard (car) {
-  const {year, make, model, mileage, price, color, gasMileage} = car;
-}
-
