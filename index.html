@@ -18,110 +18,102 @@
           .classList.toggle("chevron-rotate");
       };
     </script>
-    <title>Humbledorf's Cars</title>
+    <title>Humbledorf's Used Cars</title>
   </head>
   <body>
     <header>
-      <h1>Humbledorf's Cars</h1>
-      <div class="search-box">
-        <form id="search-form">
-          <input
-            type="text"
-            id="search-input"
-            placeholder="Search used vehicles"
-          />
-          <button type="submit"><i class="bx bx-search"></i></button>
-        </form>
-      </div>
+      <h1>Humbledorf's Used Cars</h1>
     </header>
     <main>
       <div class="container">
         <div class="left">
-          <button class="filter-btn">Apply Filters</button>
-          <section class="filters">
-            <div class="filter">
-              <div class="filter-header" onclick="toggleFilter('year')">
-                <span>Year</span>
-                <i class="bx bx-chevron-down" id="year-chev"></i>
+          <form id="filters-form">
+            <button type="submit" class="filter-btn">Apply Filters</button>
+            <section class="filters">
+              <div class="filter">
+                <div class="filter-header" onclick="toggleFilter('year')">
+                  <span>Year</span>
+                  <i class="bx bx-chevron-down" id="year-chev"></i>
+                </div>
+                <div class="filter-content" id="year">
+                  <input
+                    class="num-input"
+                    type="number"
+                    id="min-year"
+                    placeholder="min year"
+                  />
+                  <input
+                    class="num-input"
+                    type="number"
+                    id="max-year"
+                    placeholder="max year"
+                  />
+                </div>
               </div>
-              <div class="filter-content" id="year">
-                <input
-                  class="num-input"
-                  type="number"
-                  id="min-year"
-                  placeholder="min year"
-                />
-                <input
-                  class="num-input"
-                  type="number"
-                  id="max-year"
-                  placeholder="max year"
-                />
-              </div>
-            </div>
-            <div class="filter">
-              <div class="filter-header" onclick="toggleFilter('make')">
-                <span>Make</span>
-                <i class="bx bx-chevron-down" id="make-chev"></i>
+              <div class="filter">
+                <div class="filter-header" onclick="toggleFilter('make')">
+                  <span>Make</span>
+                  <i class="bx bx-chevron-down" id="make-chev"></i>
+                </div>
                 <div class="filter-content" id="make">
+                    <!--Dynamic content here-->
+                  </div>
+              </div>
+              <div class="filter">
+                <div class="filter-header" onclick="toggleFilter('mileage')">
+                  <span>Mileage</span>
+                  <i class="bx bx-chevron-down" id="mileage-chev"></i>
+                </div>
+                <div class="filter-content choice" id="mileage">
+                  <div>
+                    <input type="checkbox" name="15" id="15" />
+                    <label for="15">&gt;15000</label>
+                  </div>
+                  <div>
+                    <input type="checkbox" name="30" id="30" />
+                    <label for="30">&gt;30000</label>
+                  </div>
+                  <div>
+                    <input type="checkbox" name="45" id="45" />
+                    <label for="45">&gt;45000</label>
+                  </div>
+                  <div>
+                    <input type="checkbox" name="60" id="60" />
+                    <label for="60">&gt;60000</label>
+                  </div>
+                </div>
+              </div>
+              <div class="filter">
+                <div class="filter-header" onclick="toggleFilter('price')">
+                  <span>Price</span>
+                  <i class="bx bx-chevron-down" id="price-chev"></i>
+                </div>
+                <div class="filter-content" id="price">
+                  <input
+                    class="num-input"
+                    type="number"
+                    id="min-price"
+                    placeholder="min price"
+                  />
+                  <input
+                    class="num-input"
+                    type="number"
+                    id="max-price"
+                    placeholder="max price"
+                  />
+                </div>
+              </div>
+              <div class="filter">
+                <div class="filter-header choice" onclick="toggleFilter('color')">
+                  <span>Color</span>
+                  <i class="bx bx-chevron-down" id="color-chev"></i>
+                </div>
+                <div class="filter-content choice" id="color">
                   <!--Dynamic content here-->
                 </div>
               </div>
-            </div>
-            <div class="filter">
-              <div class="filter-header" onclick="toggleFilter('mileage')">
-                <span>Mileage</span>
-                <i class="bx bx-chevron-down" id="mileage-chev"></i>
-              </div>
-              <div class="filter-content" id="mileage">
-                <div>
-                  <input type="checkbox" name="15" id="15" />
-                  <label for="15">&gt;15000</label>
-                </div>
-                <div>
-                  <input type="checkbox" name="30" id="30" />
-                  <label for="30">&gt;30000</label>
-                </div>
-                <div>
-                  <input type="checkbox" name="45" id="45" />
-                  <label for="45">&gt;45000</label>
-                </div>
-                <div>
-                  <input type="checkbox" name="60" id="60" />
-                  <label for="60">&gt;60000</label>
-                </div>
-              </div>
-            </div>
-            <div class="filter">
-              <div class="filter-header" onclick="toggleFilter('price')">
-                <span>Price</span>
-                <i class="bx bx-chevron-down" id="price-chev"></i>
-              </div>
-              <div class="filter-content" id="price">
-                <input
-                  class="num-input"
-                  type="number"
-                  id="min-price"
-                  placeholder="min price"
-                />
-                <input
-                  class="num-input"
-                  type="number"
-                  id="max-price"
-                  placeholder="max price"
-                />
-              </div>
-            </div>
-            <div class="filter">
-              <div class="filter-header" onclick="toggleFilter('color')">
-                <span>Color</span>
-                <i class="bx bx-chevron-down" id="color-chev"></i>
-              </div>
-              <div class="filter-content" id="color">
-                <!--Dynamic content here-->
-              </div>
-            </div>
-          </section>
+            </section>
+          </form>
         </div>
         <div class="right" id="content-container">
           <!--Dynamic content goes here-->

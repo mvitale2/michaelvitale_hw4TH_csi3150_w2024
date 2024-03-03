@@ -1,24 +1,29 @@
 import usedCars from "./usedCars.js";
 
-const form = document.getElementById("search-form");
-const user_query = document.getElementById("search-input");
+const form = document.getElementById("filters-form");
 const container = document.getElementById("content-container");
 const color = document.getElementById("color");
 const make = document.getElementById("make");
+/*
 const year = document.getElementById("year");
 const price = document.getElementById("price");
 const mileage = document.getElementById("mileage");
-const filters = [color, make, year, price, mileage];
+*/
 
+//car cards
 function createCarCard(car) {
+  const { year, color, make, model, price, mileage, gasMileage } = car;
   return `
   <div class="car-card">
-    <h2>${car.make} ${car.model}</h2>
-    <p>${car.year}</p>
-    <p>$${car.price}</p>
-    <p>Mileage: ${car.mileage}</p>
-    <p>Gas Mileage: ${car.gasMileage}</p>
-    <p>Color: ${car.color}</p>
+    <img src="./assets/images/${make}-${model}.png" alt="${color}-${make}-${model}" />
+    <div class="car-card-info">
+      <h2>${make} ${model}</h2>
+      <p>${year}</p>
+      <p>$${price}</p>
+      <p>Mileage: ${mileage}</p>
+      <p>Gas Mileage: ${gasMileage}</p>
+      <p>Color: ${color}</p>
+    </div>
   </div>
   `;
 }
@@ -27,7 +32,63 @@ function generateCarCards(cars) {
   return cars.map((car) => createCarCard(car)).join("");
 }
 
-container.innerHTML = generateCarCards(usedCars);
+// color filter
+function getCarColors(cars) {
+  const uniqueColors = new Set();
+  cars.forEach((car) => {
+    uniqueColors.add(car.color);
+  });
+  return [...uniqueColors];
+}
+
+function createColorFilter(color) {
+  return `
+    <div>
+      <input type="checkbox" name="color" id="${color} value=${color}" />
+      <label for="${color}">${color}</label>
+    </div>
+    `;
+}
+
+function generateColorFilters(colors) {
+  return colors.map((color) => createColorFilter(color)).join("");
+}
+
+//make filter
+function getCarMakes(cars) {
+  const uniqueMakes = new Set();
+  cars.forEach((car) => {
+    uniqueMakes.add(car.make);
+  });
+  return [...uniqueMakes];
+}
+
+function createMakeFilter(make) {
+  return `
+  <div>
+    <input type="checkbox" name="make" id="${make}" />
+    <label for="${make}">${make}</label>
+  </div>
+  `;
+}
+
+function generateMakeFilters(makes) {
+  return makes.map((make) => createMakeFilter(make)).join("");
+}
+
+//filter logic
+
+
+
+//initialize on page load
+
+function init() {
+  container.innerHTML = generateCarCards(usedCars);
+  color.innerHTML = generateColorFilters(getCarColors(usedCars));
+  make.innerHTML = generateMakeFilters(getCarMakes(usedCars));
+}
+
+init();
 
 /* attempts to be smart and apply clickiness to all filters without having to do anything manually
 //retrieved from https://www.w3schools.com/howto/howto_js_dropdown.asp
