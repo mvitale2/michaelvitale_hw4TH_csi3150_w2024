@@ -1,3 +1,5 @@
+//ChatGPT was used as a tool in the making of this script
+
 import usedCars from "./usedCars.js";
 
 const form = document.getElementById("filters-form");
@@ -9,6 +11,10 @@ const year = document.getElementById("year");
 const price = document.getElementById("price");
 const mileage = document.getElementById("mileage");
 */
+
+function clearContainer() {
+  container.innerHTML = "";
+}
 
 //car cards
 function createCarCard(car) {
@@ -34,11 +40,12 @@ function generateCarCards(cars) {
 
 // color filter
 function getCarColors(cars) {
-  const uniqueColors = new Set();
+  var uniqueColors = new Set(); // a set can only have one of each unique value, unlike an array
   cars.forEach((car) => {
     uniqueColors.add(car.color);
   });
-  return [...uniqueColors];
+  uniqueColors = [...uniqueColors];
+  return uniqueColors.sort();
 }
 
 function createColorFilter(color) {
@@ -57,11 +64,14 @@ function generateColorFilters(colors) {
 //year filter
 
 function getCarYears(cars) {
-  const uniqueYears = new Set();
+  var uniqueYears = new Set();
   cars.forEach((car) => {
     uniqueYears.add(car.year);
   });
-  return [...uniqueYears];
+  uniqueYears = [...uniqueYears];
+  return uniqueYears.sort(function (a, b) {
+    return a - b; // how does this make it sort numerically? i have no idea lol
+  });
 }
 
 function createYearFilter(year) {
@@ -79,11 +89,12 @@ function generateYearFilters(years) {
 
 //make filter
 function getCarMakes(cars) {
-  const uniqueMakes = new Set();
+  var uniqueMakes = new Set();
   cars.forEach((car) => {
     uniqueMakes.add(car.make);
   });
-  return [...uniqueMakes];
+  uniqueMakes = [...uniqueMakes];
+  return uniqueMakes.sort();
 }
 
 function createMakeFilter(make) {
@@ -103,14 +114,16 @@ function generateMakeFilters(makes) {
 
 const colors = getCarColors(usedCars);
 const makes = getCarMakes(usedCars);
-const years = getCarYears(usedCars);
+const years = getCarYears(usedCars).toString(); // since year is int in usedCars.js
 
+//apply filters button
 form.addEventListener("submit", function (event) {
   event.preventDefault();
 
   var checkedCheckboxes = document.querySelectorAll(
     "input[type=checkbox]:checked"
   );
+  console.log(checkedCheckboxes);
   var choiceFilters = [];
   checkedCheckboxes.forEach(function (checkbox) {
     if (colors.includes(checkbox.id)) {
@@ -122,6 +135,14 @@ form.addEventListener("submit", function (event) {
     }
   });
   console.log(choiceFilters);
+});
+
+//clear button
+document.getElementById("clear-btn").addEventListener("click", function () {
+  var checkedCheckboxes = document.querySelectorAll("input[type=checkbox]");
+  checkedCheckboxes.forEach((checkbox) => {
+    checkbox.checked = false; // this blog post saved me https://aileenrae.co.uk/blog/programatically-check-uncheck-checkbox-javascript/
+  });
 });
 
 //initialize on page load
