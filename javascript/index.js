@@ -7,10 +7,8 @@ const container = document.getElementById("content-container");
 const color = document.getElementById("color");
 const make = document.getElementById("make");
 const year = document.getElementById("year");
-/*
 const price = document.getElementById("price");
 const mileage = document.getElementById("mileage");
-*/
 
 function clearContainer() {
   container.innerHTML = "";
@@ -117,7 +115,8 @@ const makes = getCarMakes(usedCars);
 const years = getCarYears(usedCars).toString(); // since year is int in usedCars.js
 
 //apply filters button
-form.addEventListener("submit", function (event) {
+
+form.addEventListener("submit", (event, car) => {
   event.preventDefault();
 
   var checkedCheckboxes = document.querySelectorAll(
@@ -125,19 +124,38 @@ form.addEventListener("submit", function (event) {
   );
   console.log(checkedCheckboxes);
   var choiceFilters = [];
-  checkedCheckboxes.forEach(function (checkbox) {
-    if (colors.includes(checkbox.id)) {
-      choiceFilters.push(checkbox.id);
-    } else if (makes.includes(checkbox.id)) {
-      choiceFilters.push(checkbox.id);
-    } else if (years.includes(checkbox.id)) {
-      choiceFilters.push(checkbox.id);
-    }
-  });
-  console.log(choiceFilters);
+  if (checkedCheckboxes.length === 0) {
+    console.log("No filters selected, resetting page...");
+    clearContainer();
+    container.innerHTML = generateCarCards(usedCars);
+  } else {
+    checkedCheckboxes.forEach((checkbox) => {
+      if (colors.includes(checkbox.id)) {
+        choiceFilters.push(checkbox.id);
+      } else if (makes.includes(checkbox.id)) {
+        choiceFilters.push(checkbox.id);
+      } else if (years.includes(checkbox.id)) {
+        choiceFilters.push(checkbox.id);
+      }
+      console.log(choiceFilters);
+      //filter documentation: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter
+      const filteredCars = usedCars.filter((car) => {
+        return (
+          choiceFilters.includes(car.color) ||
+          choiceFilters.includes(car.year.toString()) ||
+          choiceFilters.includes(car.make)
+        );
+        //Need to make this exclusive. Currently it includes every car that matches just one of these filters.
+        //Also need to implement functionality for mileage & price.
+      });
+      clearContainer();
+      container.innerHTML = generateCarCards(filteredCars);
+    });
+  }
 });
 
 //clear button
+
 document.getElementById("clear-btn").addEventListener("click", function () {
   var checkedCheckboxes = document.querySelectorAll("input[type=checkbox]");
   checkedCheckboxes.forEach((checkbox) => {

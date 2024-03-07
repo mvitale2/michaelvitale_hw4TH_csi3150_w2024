@@ -147,6 +147,7 @@ main .container .left button:hover {
 main .container .right {
   display: flex;
   justify-content: center;
+  align-self:baseline;
   flex-direction: row;
   flex-wrap: wrap;
   width: 80%;
