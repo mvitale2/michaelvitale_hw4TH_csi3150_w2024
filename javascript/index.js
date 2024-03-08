@@ -22,7 +22,7 @@ function createCarCard(car) {
   return `
   <div class="car-card">
     <div class="card-img-container">
-      <img src="./assets/images/${make.toLowerCase()}-${model.toLowerCase()}.png" alt="${color}-${make}-${model}" />
+      <img src="./assets/images/${make}-${model}.png" alt="${color}-${make}-${model}" />
     </div>
     <div class="car-card-info">
       <h2>${make} ${model}</h2>
