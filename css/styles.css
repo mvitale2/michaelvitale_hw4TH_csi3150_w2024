@@ -59,7 +59,7 @@ main .container .left {
   justify-content: center;
   align-items: center;
   align-self: flex-start;
-  width: 20%;
+  width: 30%;
   height: 100%;
 }
 
@@ -76,7 +76,7 @@ main .container .left button {
   color: var(--font-color-primary);
   width: 90%;
   padding: 10px 0;
-  font-size: 24px;
+  font-size: 18px;
   cursor: pointer;
   transition: all ease 0.2s;
 }
@@ -147,10 +147,10 @@ main .container .left button:hover {
 main .container .right {
   display: flex;
   justify-content: center;
-  align-self:baseline;
+  align-self: baseline;
   flex-direction: row;
   flex-wrap: wrap;
-  width: 80%;
+  width: 70%;
   height: 100%;
   padding-left: 20px;
 }
@@ -168,6 +168,10 @@ main .container .right .car-card {
 
 main .container .right .car-card:hover {
   border: var(--font-color-primary) solid 1px;
+}
+
+main .container .right .car-card .card-img-cointainer {
+  width: 20rem;
 }
 
 main .container .right .car-card img {
@@ -198,4 +202,19 @@ footer ul a {
 
 footer ul a i {
   font-size: 40px;
+}
+
+@media screen and (max-width: 550px) {
+  header h1 {
+    font-size: 2rem;
+  }
+  button {
+    font-size: 16px !important;
+  }
+  img {
+    width: 100% !important;
+  }
+  .filter-content {
+    font-size: 14px !important;
+  }
 }

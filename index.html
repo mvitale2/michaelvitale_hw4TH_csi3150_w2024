@@ -11,7 +11,7 @@
     <script src="./javascript/usedCars.js" defer type="module"></script>
     <script src="./javascript/index.js" defer type="module"></script>
     <script>
-      const toggleFilter = function (id) {
+      const toggleFilter = id => {
         document.getElementById(id).classList.toggle("show");
         document
           .getElementById(`${id}-chev`)
@@ -55,20 +55,20 @@
                 </div>
                 <div class="filter-content choice" id="mileage">
                   <div>
-                    <input type="checkbox" name="15" id="15" />
-                    <label for="15">&gt;15000</label>
+                    <input type="radio" name="mileage" id="15000" />
+                    <label for="15000">&gt;15000</label>
                   </div>
                   <div>
-                    <input type="checkbox" name="30" id="30" />
-                    <label for="30">&gt;30000</label>
+                    <input type="radio" name="mileage" id="30000" />
+                    <label for="30000">&gt;30000</label>
                   </div>
                   <div>
-                    <input type="checkbox" name="45" id="45" />
-                    <label for="45">&gt;45000</label>
+                    <input type="radio" name="mileage" id="45000" />
+                    <label for="45000">&gt;45000</label>
                   </div>
                   <div>
-                    <input type="checkbox" name="60" id="60" />
-                    <label for="60">&gt;60000</label>
+                    <input type="radio" name="mileage" id="60000" />
+                    <label for="60000">&gt;60000</label>
                   </div>
                 </div>
               </div>
@@ -79,20 +79,20 @@
                 </div>
                 <div class="filter-content" id="price">
                   <div>
-                    <input type="checkbox" name="$15" id="$15" />
-                    <label for="$15">&lt;15000</label>
+                    <input type="radio" name="price" id="16000" />
+                    <label for="16000">&lt;$16000</label>
                   </div>
                   <div>
-                    <input type="checkbox" name="$30" id="$30" />
-                    <label for="$30">&lt;30000</label>
+                    <input type="radio" name="price" id="20000" />
+                    <label for="20000">&lt;$20000</label>
                   </div>
                   <div>
-                    <input type="checkbox" name="$45" id="$45" />
-                    <label for="$45">&lt;45000</label>
+                    <input type="radio" name="price" id="40000" />
+                    <label for="40000">&lt;$40000</label>
                   </div>
                   <div>
-                    <input type="checkbox" name="$60" id="$60" />
-                    <label for="$60">&lt;60000</label>
+                    <input type="radio" name="price" id="50000" />
+                    <label for="50000">&lt;$50000</label>
                   </div>
                 </div>
               </div>
